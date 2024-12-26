@@ -9,4 +9,9 @@ fun readInput(name: String) = Path("src/main/resources/day${name}.txt").readText
 /**
  * The cleaner shorthand for printing output.
  */
-fun Any?.println() = println(this)
+fun <T> T.println(): T {
+    println(this)
+    return this
+}
+
+fun <L> Iterable<L>.withoutItemAt(index: Int) = filterIndexed { i, _ -> i != index }
